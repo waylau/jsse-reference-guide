@@ -15,14 +15,14 @@ JSSE 包括以下重要的特性:
 
 Table 1: Cryptographic Functionality Available in JSSE
 
-密码算法[^footer1]  | 加密过程 |	密钥长度(字节)
+密码算法[^注1]  | 加密过程 |	密钥长度(字节)
 ---- | ---- | ----
 Rivest Shamir Adleman (RSA)	| 认证和密钥交换 | 512 以及更大Rivest Cipher 4 (RC4) |	批量加密 | 128，128 (40 effective)
 Data Encryption Standard (DES) | 批量加密 | 64 (56 effective)，64 (40 effective)
 Triple DES (3DES) | 批量加密 | 192 (112 effective)
-Advanced Encryption Standard (AES) | 批量加密 |	256[^footer2] ，128
+Advanced Encryption Standard (AES) | 批量加密 |	256[^注2] ，128
 Diffie-Hellman (DH) | 密钥协议 | 1024，512
 Digital Signature Algorithm (DSA) |	身份验证 | 1024
 
-* [^footer1]: SunJSSE 的实现是使用 [JCA](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) 用于所有的加密算法 
-* [^footer2]: 密码套件使用 AES_256 需要安装   Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files。 详见 [Java SE下载页面](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
+* [^注1]: SunJSSE 的实现是使用 [JCA](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) 用于所有的加密算法 
+* [^注2]: 密码套件使用 AES_256 需要安装   Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files。 详见 [Java SE下载页面](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
