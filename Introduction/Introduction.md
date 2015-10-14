@@ -2,7 +2,7 @@
 
 数据在网络上传播很容易被不是预期的收件人进行访问。当数据包含私人信息，如密码和信用卡号码，必须采取措施，以保证使数据不容易透露给未经授权的第三方。同样重要的是，在传输过程中要确保数据没有被修改（有意或无意地）。 Secure Sockets Layer (SSL，安全套接字层)和Transport Layer Security (TLS，传输层安全)协议，旨在保护数据在网络传输的过程中的保密性和完整性。
 
-Java Secure Socket Extension (JSSE，Java 安全套接字扩展) 实现了安全的互联网通信。它提供了一个框架，并为执行 SSL 和 TLS 协议的Java 版本的实现，包括数据加密，服务器认证，消息完整性和可选的客户端认证功能。使用 JSSE，开发者可以提供一个客户端和运行任何基于 TCP/IP 上的应用协议（如 HTTP，Telnet 或 FTP）的服务器之间的数据安全通道。关于 SSL 的更多介绍，请参阅 [SSL 协议总览](Secure Sockets Layer Protocol Overview/Secure Sockets Layer Protocol Overview.md)。
+Java Secure Socket Extension (JSSE，Java 安全套接字扩展) 实现了安全的互联网通信。它提供了一个框架，并为执行 SSL 和 TLS 协议的Java 版本的实现，包括数据加密，服务器认证，消息完整性和可选的客户端认证功能。使用 JSSE，开发者可以提供一个客户端和运行任何基于 TCP/IP 上的应用协议（如 HTTP，Telnet 或 FTP）的服务器之间的数据安全通道。关于 SSL 的更多介绍，请参阅 [SSL 协议总览](../Secure Sockets Layer Protocol Overview/Secure Sockets Layer Protocol Overview.md)。
 
 通过抽象复杂的底层安全算法和握手机制，JSSE 减少创造微妙而危险的安全漏洞的风险。此外，作为一个模块，开发人员可以直接集成它到他们的应用程序简化了应用程序的开发。
 
