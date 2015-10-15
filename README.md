@@ -7,7 +7,7 @@ This is a Chinese translation of [Java Secure Socket Extension (JSSE) Reference 
 
 另外有 GitBook 的版本方便阅读 <http://waylau.gitbooks.io/jsse-reference-guide>。
 
-书中所有实例，在 `samples` 目录下。
+书中所有实例，在<https://github.com/waylau/jsse-reference-guide> `samples` 目录下。
 
 从[目录](SUMMARY.md)开始阅读吧！
 
