@@ -171,3 +171,24 @@ The SSL messages are sent in the following order:
 
 
 如果 SSL 会话期间生成的参数被保存，然后这些参数有时可以再用于将来的SSL 会话。保存 SSL 会话参数允许加密通信开始的更加迅速。
+
+### 再次握手（重新协商）
+
+一旦初始握手完成，应用程序数据流转，任何一方都可以随时启动新的握手。一个应用程序可能需要使用一个更强大的加密套件，特别是关键操作，或者一个服务器应用程序可能需要验证客户端身份。
+
+不管原因，新的握手是在现有的加密会话中进行的，并且在一个新的会话建立之前，应用数据和握手信息是交错的。
+
+您的应用程序可以使用下列方法之一启动一个新的握手：
+
+* SSLSocket.startHandshake()
+* SSLEngine.beginHandshake()
+
+请注意，相关谈判协议的缺陷在 2009 年被发现。协议和  Java SE 的实现都是修正过的。更多信息，查看[Transport Layer Security (TLS) Renegotiation Issue](Transport Layer Security Renegotiation Issue/Transport Layer Security Renegotiation Issue.md)
+
+### 密码套件选择与远程实体验证
+
+[SSL/TLS 协议](https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/JSSERefGuide.html#SSLDocs)定义了一系列具体的措施以保证受保护的连接。然而，密码套件的选择直接影响到连接所享有的安全类型。例如，如果选择一个匿名密码套件，则该应用程序无法验证远程对等端的身份。如果一个没有加密的套件被选中，那么数据的隐私就不能被保护。此外，SSL/TLS 协议不指定凭据接收到的必须匹配所期望发送的。如果连接被某种方式重定向到一个恶意的对等端，但该流氓的凭据基于目前的信任材料是可以接受的基础上，那么该连接将被认为是有效的。
+
+利用原生 SSLSocket 和 SSLEngine 类的时候，你应该总是在发送任何数据前校验凭据。SSLSocket 和 SSLEngine 类不自动验证 URL 中的主机名和凭证中的的主机名是否匹配。如果注解名未被检验，则一个应用程序可以被伪装的 URL 所恶意利用。
+
+协议如 [HTTPS(HTTP Over TLS)](http://www.ietf.org/rfc/rfc2818.txt) 需要主机名验证。应用程序可以使用 [HostnameVerifier](https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/JSSERefGuide.html#HostnameVerifier) 覆盖默认 HTTPS 主机名称规则。更多信息见 [HttpsURLConnection](https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/JSSERefGuide.html#HttpsURLConnection) 。
